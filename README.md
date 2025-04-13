@@ -3,10 +3,10 @@
 This project showcases the deployment of a Nextcloud web server using a Virtual Machine in Microsoft Azure. 
 
 ## 📖 Table of Contents
-- [Overview](#overview)
-- [Architecture](#architecture)
-- [Technologies Used](#technologies-used)
-- [Setup & Deployment](#technologies-used)
+- [Overview](#-overview)
+- [Architecture](#️-architecture)
+- [Technologies Used](#-technologies-used)
+- [Setup & Deployment](#-setup--deployment)
 
 
 ## 🔍 Overview
@@ -83,3 +83,25 @@ sudo nextcloud.manual-install admin password
 sudo nextcloud.enable-https self-signed
 ``
 
+7. Create Public IP and allow only HTTPS connections 
+![IP](Azure_Nextcloud_PublishIP.png)
+
+8. Create a DNS Label
+![DNS](Azure_Nextcloud_DNS.png)
+
+* The next step is to communicate DNS label to the Nextcloud server. This will require SSH connection to the VM and the following command:
+
+``
+sudo nextcloud.occ config:system:set trusted_domains 1 --value=dns_label.eastus.cloudapp.azure.com
+``
+
+## 🖼️ Demo
+Once the Nextcloud server was fully deployed in Azure, here's a walkthrough of the final result in action:
+![GIF](Nextcloud_Azure_GIF.gif)
+
+## 🔐 Security Considerations
+This project follows security best practices:
+* ✅ **SSH Key Authentication** - Access to the VM was secured using an SSH key pair (``.pem`` file), ensuring a more secure method of authentication.
+* ✅ **Access via Azure Bastion** - The VM was accessed through **Azure Bation**, which provides secure, browser-based SSH connectivity without exposing any public SSH ports to the internet.
+* **Network Security Groups (NSG)**: Inbound and outbound traffic was tightly controlled using NSG rules, allowing only necessary communication paths.
+* **Resource Isolation**: The VM and related components were deployed in a dedicated Virtual Network and Subnet.
