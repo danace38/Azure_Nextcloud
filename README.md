@@ -17,6 +17,9 @@ This project showcases the deployment of a Nextcloud web server using a Virtual 
 
 I created this project as part of my journey to build practical cloud engineering skills - with a focus on undestanding core concepts in **networking** and **security** within the Azure ecosystem. 
 
+**Why Nextcloud?** I chose it for this project because it's an open-source file storage and collaboration solution. It allows users to host their own cloud storage, giving them control over their data and privacy. 
+
+
 Furthemore, it has been a long-time goal of mine to set up a self-hosted platform where I have full control over my data. I've always been interested in learning how to host and manage my own services rather than relying solely on third-party platforms (e.g., Google Drive, iCloud, OneDrive, etc)
 
 ## 🏗️ Architecture
